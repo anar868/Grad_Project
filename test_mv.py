@@ -43,6 +43,7 @@ def prepare_testing():
     if config['model'] is not None:
         # Load the super-resolution (SR) model
         sv_file = config['model']
+        print(sv_file['load'])
         sv_file = torch.load(sv_file['load'])
 
         # Create the SR model based on the loaded model specifications
@@ -218,7 +219,7 @@ def test(test_loader, model_sr, model_ocr, save_path):
     # Set the SR model to evaluation mode
     if model_sr is not None:
         model_sr.eval()
-        
+
     model_ocr.eval()
     
     # Create a progress bar for visualizing the testing progress
