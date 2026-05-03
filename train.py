@@ -182,6 +182,7 @@ def main(config_, save_path):
     # Get maximum number of epochs and epoch save interval from configuration
     epoch_max = config['epoch_max']
     epoch_save = config.get('epoch_save')
+    print(f"Maximum epochs: {epoch_max}, Epoch save interval: {epoch_save}")
     
     # Create a timer to measure training time
     timer = utils.Timer()  
@@ -318,15 +319,15 @@ if __name__ == '__main__':
     main(config, save_path)
     
     # Send an email notification about training completion (optional)
-    msg = MIMEText("Your training process has completed successfully.")
-    msg['Subject'] = config['email']['subject'] + '_' + config['model']['name']
-    msg['From'] = config['email']['sender']
-    msg['To'] = config['email']['recipient']
+    # msg = MIMEText("Your training process has completed successfully.")
+    # msg['Subject'] = config['email']['subject'] + '_' + config['model']['name']
+    # msg['From'] = config['email']['sender']
+    # msg['To'] = config['email']['recipient']
     
-    smtp_server = "smtp.gmail.com"
-    smtp_port = 587
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.starttls()
-    server.login(config['email']['sender'], config['email']['passwd'])
-    server.sendmail(config['email']['sender'], config['email']['recipient'], msg.as_string())
-    server.quit()
+    # smtp_server = "smtp.gmail.com"
+    # smtp_port = 587
+    # server = smtplib.SMTP(smtp_server, smtp_port)
+    # server.starttls()
+    # server.login(config['email']['sender'], config['email']['passwd'])
+    # server.sendmail(config['email']['sender'], config['email']['recipient'], msg.as_string())
+    # server.quit()
