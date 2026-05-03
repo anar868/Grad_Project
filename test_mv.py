@@ -262,16 +262,22 @@ def test(test_loader, model_sr, model_ocr, save_path):
             gt.append(batch['gt'][0])
             mv_path_images.append(batch['name'])
             # For each resolution and threshold, calculate and store results
-            
-            
-            
             for res_type, (preds, preds_conf_mean) in preds_dict.items():
             
                 for t in [1, 3, 5]:
                     process_results(preds, preds_conf_mean, t, mv_character_results, mv_hc_results, mv_results, res_type)
             
-            img_save_path = results_path / batch['name'][0].parent
+            name_path = Path(batch['name'][0])
+            track_name = name_path.parent.name
+            img_save_path = results_path / track_name
             img_save_path.mkdir(parents=True, exist_ok=True)
+
+            # Save the ground-truth plate text in the same output folder
+            gt_text = batch["gt"][0]
+
+            with open(img_save_path / f"{gt_text}.txt", "w") as f:
+                f.write(str(preds_dict))
+
             for i, (img_lr, img_sr) in enumerate(zip(imgs_lr, imgs_sr)):
                 filename_lr = f"lr-{i+1:03}.png"
                 filename_sr = f"sr-{i+1:03}.png"
