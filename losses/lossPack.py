@@ -1,3 +1,5 @@
+import os
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
 
 import re
 import gc
@@ -21,7 +23,7 @@ from torchvision import transforms
 from torch.autograd import Variable
 from memory_profiler import profile
 from torchvision.models import vgg19
-from keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 from tensorflow.keras.utils import img_to_array
 from skimage.metrics import structural_similarity
 
