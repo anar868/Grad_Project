@@ -751,7 +751,7 @@ def make_GPLPR(alphabet="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", nc=3, imgW=96, i
     args.head = head
     args.inner = inner
     args.isl2Norm = isl2Norm
-    
+    print("found the model: GPLPR")
     return LPR_model(args)
 
 

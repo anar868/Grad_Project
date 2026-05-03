@@ -218,7 +218,9 @@ def test(test_loader, model_sr, model_ocr, save_path):
     # Set the SR model to evaluation mode
     if model_sr is not None:
         model_sr.eval()
+        
     model_ocr.eval()
+    
     # Create a progress bar for visualizing the testing progress
     pbar = tqdm(test_loader, leave=False, desc='test')
     # Initialize a list to store predictions

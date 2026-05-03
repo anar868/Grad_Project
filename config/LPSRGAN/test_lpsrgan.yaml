@@ -8,7 +8,7 @@ model:
 
 model_ocr:
   name: GPLPR
-  load: /content/drive/MyDrive/Grad Project/models/PKU.pth
+  load: /content/drive/MyDrive/Grad Project/models/Rodosol.pth
   args:
     alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     nc: 3
